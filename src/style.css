@@ -1,0 +1,109 @@
+/* CSS */
+
+body {
+  /*color: #fff;*/
+  font-family: Areial;
+  text-align: center;
+  background: #cee5d0;
+  /*background-image: url("../img/background.jpg");*/
+}
+
+
+
+#content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#content > * {
+  /*background: #3bbced;*/
+  padding: 5px;
+}
+
+header {
+  grid-column: 1/2;
+}
+
+main {
+  grid-column: 1/2;
+}
+
+canvas {
+  border: 1px solid #000;
+  display: block; /* Ensures canvas takes full width */
+  margin: 0 auto; /* Centers canvas horizontally */
+}
+
+section {
+  font-family: Areial;
+  font-size: 25px;
+  /*text-align: justify;*/
+  grid-column: 2/3;
+  grid-row: 2/3;
+  border: 1px solid #2f4353;
+  color: #2f3c7e;
+  background-color: #f3f0d7;
+  position: relative;
+  /* background-color: #2f4353;
+background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);*/
+}
+
+.button {
+  grid-column: 1/2;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2f4353;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e2b3b;
+}
+
+input[type="number"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #2f4353;
+}
+
+
+header h1 {
+  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  margin: 5px;
+  letter-spacing: 3px;
+}
+
+
+

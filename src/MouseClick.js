@@ -1,10 +1,10 @@
 // MouseClick.js
-
-var color = 'red';
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var startClick = null;
-var lines = []; // Array to store drawn lines
+
+var shapes = []; //Array to store drawn shape
+
 
 //Block Context menu, right click context within the canvas
 canvas.addEventListener('contextmenu', evt => {
@@ -23,42 +23,64 @@ function getMousePos(canvas, evt) {
 canvas.addEventListener(
   'mousedown',
   function (evt) {
+
+    var color = _globalColor;
     // Check if it's a right-click
     if (evt.button === 2) {
       console.log('Right clicked');
       // 2 corresponds to right-click
       // Remove the last line from the array
-      if (lines.length > 0) {
-        lines.pop();
+      if (shapes.length > 0) {
+        shapes.pop();
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         // Redraw all lines except the last one
-        lines.forEach(line => {
-          drawLine(line.x0, line.y0, line.x1, line.y1, line.color);
+        shapes.forEach(shape => {
+          if (shape.type == 'line') {
+            drawLine(shape.pos.x0, shape.pos.y0, shape.pos.x1, shape.pos.y1, shape.color);
+          } else {
+            drawCircle(shape.pos.x0, shape.pos.y0, shape.pos.raius, shape.color);
+          }
         });
       }
       return; // Exit the event listener function
     }
 
     var mousePos = getMousePos(canvas, evt);
-    console.log("Clicked at = ", mousePos)
+    console.log('Clicked at = ', mousePos);
 
-    if (startClick === null) {
-      // First click, set start point
-      startClick = mousePos;
-    } else {
-      // Second click, draw line
-      drawLine(startClick.x, startClick.y, mousePos.x, mousePos.y, color);
-      // Store the line in the array
-      lines.push({
-        x0: startClick.x,
-        y0: startClick.y,
-        x1: mousePos.x,
-        y1: mousePos.y,
+    if (isCircleMode) {
+      drawCircle(mousePos.x, mousePos.y, _radius, color);
+      shapes.push({
+        type: 'circle',
+        pos: {
+          x0: mousePos.x,
+          y0: mousePos.y,
+          raius: _radius
+        },
         color
       });
-      // Reset start click to null
-      startClick = null;
+    } else {
+      if (startClick === null) {
+        // First click, set start point
+        startClick = mousePos;
+      } else {
+        // Second click, draw line
+        drawLine(startClick.x, startClick.y, mousePos.x, mousePos.y, color);
+        // Store the line in the array
+        shapes.push({
+          type: 'line',
+          pos: {
+            x0: startClick.x,
+            y0: startClick.y,
+            x1: mousePos.x,
+            y1: mousePos.y
+          },
+          color
+        });
+        // Reset start click to null
+        startClick = null;
+      }
     }
   },
   false

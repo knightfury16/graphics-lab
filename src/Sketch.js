@@ -3,3 +3,4 @@
 // drawLine(50, 350, 350, 350, 'red');
 // drawLine(350, 50, 350, 350, 'red');
 // drawCircle(200,200,100)
+// console.log("IM from sketchjkl",DRAWING_MODE)

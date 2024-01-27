@@ -3,42 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <title>Canvas Line Drawing</title>
-    <style>
-      body {
-        background-color: aliceblue;
-        background-size: cover; /* Ensure the image covers the entire background */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        margin: 0; /* Remove default body margin */
-        padding: 0; /* Remove default body padding */
-        font-family: Arial, sans-serif; /* Optional: Specify font family */
-      }
-
-      canvas {
-        border: 1px solid #000;
-        display: block; /* Ensures canvas takes full width */
-        margin: 0 auto; /* Centers canvas horizontally */
-      }
-      h1 {
-        text-align: center; /* Centers text horizontally */
-      }
-      li {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="content">
+      <header>
+        <h1>Knight's Canvas</h1>
+      </header>
+      <main>
+        <canvas id="myCanvas" width="800" height="500"></canvas>
+      </main>
 
-    <h1 style="text-align: center">Knight's Canvas</h1>
-    <ul>
-      <li>Left click in two position to draw line.</li>
-      <li>Right click to erase the last line.</li>
-    </ul>
-    <canvas id="myCanvas" width="1200" height="600"></canvas>
-
+      <section>
+        <h2>Toggle draw method:</h2>
+        <button id="toggleButton">Switch to Circle Mode</button>
+        <div id="circleRadius" style="display: none">
+          <h2>Choose radius:</h2>
+          <input type="number" id="radiusInput" min="1" value="50" />
+        </div>
+        <div>
+          <h2>Choose Color</h2>
+          <input type="text" id="colorInput" value="black">
+          <button id="changeColorBtn">Change</button>
+        </div>
+      </section>
+      <footer>
+        copyright &copy; Knightfury
+      </footer>
+    </div>
+    <script src="globals.js"></script>
     <script src="SetPixel.js"></script>
+    <script src="toggleMode.js"></script>
     <script src="DrawCircle.js"></script>
     <script src="DrawLine.js"></script>
     <script src="MouseClick.js"></script>
