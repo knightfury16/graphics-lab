@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Canvas Line Drawing</title>
+    <style>
+      body {
+        background-color: aliceblue;
+        background-size: cover; /* Ensure the image covers the entire background */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+        margin: 0; /* Remove default body margin */
+        padding: 0; /* Remove default body padding */
+        font-family: Arial, sans-serif; /* Optional: Specify font family */
+      }
+
+      canvas {
+        border: 1px solid #000;
+        display: block; /* Ensures canvas takes full width */
+        margin: 0 auto; /* Centers canvas horizontally */
+      }
+      h1 {
+        text-align: center; /* Centers text horizontally */
+      }
+      li {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1 style="text-align: center">Knight's Canvas</h1>
+    <ul>
+      <li>Left click in two position to draw line.</li>
+      <li>Right click to erase the last line.</li>
+    </ul>
+    <canvas id="myCanvas" width="1200" height="600"></canvas>
+
+    <script src="SetPixel.js"></script>
+    <script src="DrawCircle.js"></script>
+    <script src="DrawLine.js"></script>
+    <script src="MouseClick.js"></script>
+    <script src="Sketch.js"></script>
+  </body>
+</html>
